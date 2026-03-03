@@ -1,8 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package average.calculator;
+
+import java.util.Scanner;
+
 /*
  * Java GPA Calculator
  * Author: Amro Al-Hamdan
@@ -10,70 +14,86 @@ package average.calculator;
  * determine pass/fail status, and assign letter grades (A–E).
  * Academic Level: First-year Software Engineering student
  */
-import java.util.Scanner;
+
 public class AverageCalculator {
 
+    //Find Max Mark
+    public static void maxMark (double arr[] , int size){
+    double MaxNum = arr[0]; 
+        for (int i = 1; i < size; i++) {
+            if (arr[i] > MaxNum)
+                MaxNum = arr[i];
+    }
+        System.out.println("Highest Mark: "+MaxNum);
+    }
+     //Find Min Mark
+    public static void minMark (double arr[] , int size){
+    double MinNum = arr[0];
+        for (int j = 0; j < size; j++) {
+            if (arr[j] < MinNum){
+                MinNum = arr[j];
+            }
+        }
+        System.out.println("Lowest Mark: "+ MinNum);
+    }
     
     public static void main(String[] args) {
-        Scanner in = new Scanner (System.in);
+       
         double sum = 0;
-        boolean invalid = false;
-        boolean Failed = false;
-        //taking number of courses from the user
-        System.out.println("please enter the number of courses");
-            int s = in.nextInt();
-        double [] arr = new double [s];
-        for (int i = 0; i < s; i++) {
-            System.out.println("please enter mark #"+(i+1) + "  (mark must be less or equal 100)");
-                 arr[i] = in.nextDouble();
-                 sum += arr[i];
-             }
-        //check if there is any invalid number
-        for (int q = 0; q < s; q++) {
-            if (arr[q] > 100){
-                 invalid = true;}
-        }
-        //check if there is any failed grade    
-        for (int j = 0; j < s; j++) {
-            if (arr[j] < 50) {
-                Failed = true;}
-        }
-            if (invalid == true){
-                System.out.println("marks must be less or equal to 100");}
-                else
-            if (Failed == true){
-                System.out.println("you Fail");}
-            else{
-            
-        //calculate average
-        double avg = sum/s;
-        if (avg >= 50){
-            System.out.print("you Pass\nyour average = "+avg);
-        //check letter grade (A-E)
-        if (avg >= 90){
-            System.out.println(" A");
-            System.out.println("Outstanding performance\nwith consistent academic excellence.");}
-            else
-        if (avg >= 80){
-            System.out.println(" B");
-            System.out.println("High level of achievement and\nstrong understanding of the subjects.");}    
-            else
-        if (avg >= 70){
-            System.out.println(" C");
-            System.out.println("Satisfactory performance meeting\nall the necessary requirements.");}    
-            else  
-        if (avg >= 60){
-            System.out.println(" D");
-            System.out.println("Marginal performance with\na need for further development.");}    
-            else    
-        if (avg >= 50){
-            System.out.println(" E");
-            System.out.println("Insufficient performance. \nAdditional support and study are required.");}    
-        }
-        else {
-            System.out.println("you Fail");}
+        boolean Fail = false;
+        Scanner in = new Scanner (System.in);
+        //Taking courses number from the user
+        System.out.println("please enter number of courses:");
+        int size = in.nextInt();
+        if (size<=0){
+            System.out.println("invalid number.");}
+        else{
+           
+        double arr[] = new double[size];
+        
+        // taking marks frome the user
+        for (int i = 0; i < size; i++) {
+            System.out.println("plese enter Mark #"+(i+1));
+            arr[i] = in.nextDouble();
+            while (arr[i] > 100 || arr[i] < 0){
+                System.out.println("Marks must be between 0 and 100");
+                System.out.println("plese enter Mark #"+(i+1));
+                arr[i] = in.nextDouble();
             }
-                           
+        }
+        //check if there is any failed mark
+            for (int j = 0; j < size; j++) {
+                if (arr[j] < 50)
+                    Fail = true;
+            }
+        if (Fail == true)
+                System.out.println("you fail");
+        //Calculating GPA
+        else{
+            for (int q = 0; q < size; q++) {
+                sum += arr[q];
+            }
+        double avg = sum / size ;
+        if (avg >= 90){ 
+                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (A)");
+                    System.out.println("Outstanding performance\nwith consistent academic excellence.");}
+        else if (avg >= 80) {
+                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (B)");
+                    System.out.println("High level of achievement and\nstrong understanding of the subjects.");}
+        else if (avg >= 70) {
+                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (C)");
+                    System.out.println("Satisfactory performance meeting\nall the necessary requirements.");}
+        else if (avg >= 60) {
+                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (D)");
+                    System.out.println("Marginal performance with\na need for further development.");}
+        else if (avg >= 50) {
+                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (E)");
+                    System.out.println("Insufficient performance. \nAdditional support and study are required.");}
+        
+        maxMark(arr , size);
+        minMark(arr , size);
+    }
+    }
     }
     
 }

@@ -9,6 +9,6 @@ Developed as part of Software Engineering studies at Zarqa University.
 - GPA calculation
 - Pass/Fail determination
 - Letter grade classification (A, B, C, D, E)
-
+- Showing Max and Min grades
 ## Author
 Amro Al-Hamdan

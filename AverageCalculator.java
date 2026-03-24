@@ -33,6 +33,26 @@ public class AverageCalculator_2_ {
         System.out.println("Lowest Mark: "+ MinNum);
     }
     
+    public static void finalResult (double avg , int A , int B , int C , int D , int E){
+    
+    if (avg >= A){ 
+                System.out.println("Status: Pass\nAverage: "+ avg + "\nGrade: (A)");
+                    System.out.println("Outstanding performance\nwith consistent academic excellence.");}
+        else if (avg >= B) {
+                System.out.println("Status: Pass\nAverage: "+ avg + "\nGrade: (B)");
+                    System.out.println("High level of achievement and\nstrong understanding of the subjects.");}
+        else if (avg >= C) {
+                System.out.println("Status: Pass\nAverage: "+ avg + "\nGrade: (C)");
+                    System.out.println("Satisfactory performance meeting\nall the necessary requirements.");}
+        else if (avg >= D) {
+                System.out.println("Status: Pass\nAverage: "+ avg + "\nGrade: (D)");
+                    System.out.println("Marginal performance with\na need for further development.");}
+        else if (avg >= E) {
+                System.out.println("Status: Pass\nAverage: "+ avg + "\nGrade: (E)");
+                    System.out.println("Insufficient performance. \nAdditional support and study are required.");}
+    
+    }
+    
     
     public static void main(String[] args) {
         double sum = 0;
@@ -90,21 +110,8 @@ public class AverageCalculator_2_ {
             }
             
         avg = sum / size ; }
-        if (avg >= 90){ 
-                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (A)");
-                    System.out.println("Outstanding performance\nwith consistent academic excellence.");}
-        else if (avg >= 80) {
-                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (B)");
-                    System.out.println("High level of achievement and\nstrong understanding of the subjects.");}
-        else if (avg >= 70) {
-                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (C)");
-                    System.out.println("Satisfactory performance meeting\nall the necessary requirements.");}
-        else if (avg >= 60) {
-                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (D)");
-                    System.out.println("Marginal performance with\na need for further development.");}
-        else if (avg >= 50) {
-                System.out.println("Status: Pass\nAverage: "+avg + "\nGrade: (E)");
-                    System.out.println("Insufficient performance. \nAdditional support and study are required.");}   
+        //showing final result
+        finalResult(avg , 90 , 80 , 70 , 60 , 50);
             
             maxMark(arr , size);
             minMark(arr , size);
@@ -192,22 +199,8 @@ public class AverageCalculator_2_ {
             //rounded avg
             double roundedavg = Math.round(avg * 10.0) / 10.0;
                     
-            
-            if (avg >= 84){ 
-                System.out.println("Status: Pass\nAverage: "+roundedavg + "\nGrade: (A)");
-                    System.out.println("Outstanding performance\nwith consistent academic excellence.");}
-        else if (avg >= 76) {
-                System.out.println("Status: Pass\nAverage: "+roundedavg + "\nGrade: (B)");
-                    System.out.println("High level of achievement and\nstrong understanding of the subjects.");}
-        else if (avg >= 68) {
-                System.out.println("Status: Pass\nAverage: "+roundedavg + "\nGrade: (C)");
-                    System.out.println("Satisfactory performance meeting\nall the necessary requirements.");}
-        else if (avg >= 60) {
-                System.out.println("Status: Pass\nAverage: "+roundedavg + "\nGrade: (D)");
-                    System.out.println("Marginal performance with\na need for further development.");}
-        else if (avg >= 50) {
-                System.out.println("Status: Pass\nAverage: "+roundedavg + "\nGrade: (E)");
-                    System.out.println("Insufficient performance. \nAdditional support and study are required.");}   
+            // showing final reult
+            finalResult(roundedavg , 84 , 76 , 68 , 60 , 50);
             
             maxMark(arr , size);
             minMark(arr , size);
